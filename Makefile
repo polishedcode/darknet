@@ -13,7 +13,7 @@
 #
 # 
 
-GPU=1
+GPU=0
 CUDNN=0
 OPENCV=0
 DEBUG=0
@@ -44,8 +44,7 @@ CFLAGS_CPP=-Wno-write-strings -std=c++0x
 
 NVCC=nvcc
 
-#OPTS=-Ofast
-LDFLAGS= -lm -pthread 
+LDFLAGS= -lm
 COMMON= 
 CFLAGS=-Wall -Wfatal-errors 
 
@@ -62,9 +61,6 @@ CFLAGS+= -DOPENCV
 LDFLAGS+= `pkg-config --libs opencv` 
 COMMON+= `pkg-config --cflags opencv` 
 endif
-
-# Place the IPP .a file from OpenCV here for easy linking
-LDFLAGS += -L./3rdparty
 
 ifeq ($(GPU), 1) 
 COMMON+= -DGPU -I/opt/nvidia/cuda/include/

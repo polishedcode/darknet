@@ -5,6 +5,10 @@
 #include <stdio.h>
 #include <math.h>
 
+#ifdef __APPLE__
+#define register
+#endif
+
 void gemm_bin(int M, int N, int K, float ALPHA, 
         char  *A, int lda, 
         float *B, int ldb,

@@ -146,7 +146,7 @@ void train_char_rnn(char *cfgfile, char *weightfile, char *filename, int clear, 
         fclose(fp);
     }
 
-    char *backup_directory = "/home/pjreddie/backup/";
+    char *backup_directory = ".";
     char *base = basecfg(cfgfile);
     fprintf(stderr, "%s\n", base);
     float avg_loss = -1;

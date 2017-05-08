@@ -14,8 +14,8 @@
 # 
 
 GPU=1
-CUDNN=1
-OPENCV=1
+CUDNN=0
+OPENCV=0
 DEBUG=0
 CUDA_MEM_DEBUG=0
 
@@ -44,7 +44,7 @@ CFLAGS_CPP=-Wno-write-strings -std=c++0x
 
 NVCC=nvcc
 
-OPTS=-Ofast
+#OPTS=-Ofast
 LDFLAGS= -lm -pthread 
 COMMON= 
 CFLAGS=-Wall -Wfatal-errors 
@@ -67,9 +67,8 @@ endif
 LDFLAGS += -L./3rdparty
 
 ifeq ($(GPU), 1) 
-COMMON+= -DGPU -I/usr/local/cuda/include/
-CFLAGS+= -DGPU
-LDFLAGS+= -L/usr/local/cuda/lib64 -lcuda -lcudart -lcublas -lcurand
+COMMON+= -DGPU -I/opt/nvidia/cuda/include/
+LDFLAGS+= -L/opt/nvidia/cuda/lib64 -lcuda -lcudart -lcublas -lcurand
 endif
 
 ifeq ($(CUDNN), 1) 

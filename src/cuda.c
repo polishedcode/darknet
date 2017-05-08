@@ -151,7 +151,8 @@ static int blas_init[MAX_BLAS] = {0};
 static cublasHandle_t blas_handle_t[MAX_BLAS];
 void blas_handle_reset()
 {
-    for(int i = 0;i < MAX_BLAS;i ++) 
+    int i;
+    for(i = 0;i < MAX_BLAS;i ++) 
     {
         blas_init[i] = 0;
         blas_handle_t[i] = 0;
